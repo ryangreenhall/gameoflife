@@ -28,8 +28,10 @@
         			<include name="nunit.framework.dll" />
         			<include name="game.of.life.dll" />
       			</references>
-
-        	
         	</csc>
+            <nunit2>
+      			<test assemblyname="./game.of.life.unit.test.dll" />
+    		</nunit2>
+
         </target>
     </project>
