@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+    <project name="Game of life" default="build" basedir=".">
+        <description>Automated build for Game of Life</description>
+        <property name="debug" value="true" overwrite="false" />
+        <target name="clean" description="remove all generated files">
+          
+        </target>
+        
+        <target name="build" description="compiles the source code">
+            <csc target="exe" output="GameOfLife.exe" debug="${debug}">
+                <sources>
+                    <include name="./src/*.cs"/>
+                </sources>
+            </csc>
+        </target>
+    </project>
