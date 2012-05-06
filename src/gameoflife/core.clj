@@ -3,11 +3,9 @@
 (defn number-of-living-neighbours
   [grid cell])
 
-
 (defn alive?
   [grid cell]
-
-  )
+  (= :alive (aget (to-array-2d grid) (:x cell) (:y cell))))
 
 (defn neighbours
   [grid cell]

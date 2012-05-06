@@ -16,3 +16,11 @@
           {:x 1, :y 1}
           {:x 3, :y 3}
           {:x 1, :y 3}] (neighbours [] {:x 2 :y 2}))))
+
+(deftest can-identify-cells-that-are-living
+  (is (alive? [[:alive :alive]
+               [:alive :alive]] {:x 0 :y 0})))
+
+(deftest can-identify-cells-that-are-dead
+  (is (not (alive? [[:dead :alive]
+                    [:alive :alive]] {:x 0 :y 0}))))
