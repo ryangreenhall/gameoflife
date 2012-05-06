@@ -24,3 +24,9 @@
 (deftest can-identify-cells-that-are-dead
   (is (not (alive? [[:dead :alive]
                     [:alive :alive]] {:x 0 :y 0}))))
+
+(deftest can-find-the-number-of-living-neighbours
+  (is (= 3 (number-of-living-neighbours [[:alive :alive]
+                                         [:alive :alive]] {:x 0 :y 0})))
+  (is (= 0 (number-of-living-neighbours [[:alive :dead]
+                                         [:dead  :dead]] {:x 0 :y 0}))))

@@ -1,7 +1,8 @@
 (ns gameoflife.core)
 
 (defn number-of-living-neighbours
-  [grid cell])
+  [grid cell]
+  (count (filter #(alive? grid %1) (neighbours grid cell))))
 
 (defn alive?
   [grid cell]
