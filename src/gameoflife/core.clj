@@ -2,7 +2,6 @@
 
 (defn neighbours
   [grid cell]
-
   (let [relative-positions [{:x  0  :y -1} ;above
                             {:x  1  :y  0} ;right
                             {:x -1  :y  0} ;left
@@ -15,14 +14,15 @@
 
     (defn inside-grid?
       [cell]
-      (and (<= 0 (:x cell)) (<= 0 (:y cell))))
+      (and (and (<= 0 (:x cell)) (>= (dec (count grid)) (:x cell)))
+           (and (<= 0 (:y cell)) (>= (dec (count grid)) (:y cell)))))
 
     (filter inside-grid? (map #(into {} {:x (+ (:x cell) (:x %))
                                          :y (+ (:y cell) (:y %))}) relative-positions))))
 
 (defn alive?
   [grid cell]
-  (= :alive (aget (to-array-2d grid) (:x cell) (:y cell))))
+  (= :alive (aget (to-array-2d grid) (:y cell) (:x cell))))
 
 (defn number-of-living-neighbours
   [grid cell]
@@ -30,7 +30,7 @@
 
 (defn state
   [grid cell]
-  (aget (to-array-2d grid) (:x cell) (:y cell)))
+  (aget (to-array-2d grid) (:y cell) (:x cell)))
 
 (defn next-generation
   "Produces the next generation based on the given generation.
